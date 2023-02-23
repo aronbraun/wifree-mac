@@ -178,5 +178,5 @@ function FindProxyForURL(url, host) {
 	if(shExpMatch(host, "t.co")) return "PROXY 0.0.0.0:1234";
 	if(shExpMatch(url, "*twimg.com*")) return "PROXY 0.0.0.0:1234";
 	
-	return "PROXY vpn-us-nyc1.netfree.link:143";
+	return "PROXY 1.1.1.1:80";
 }
