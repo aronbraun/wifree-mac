@@ -177,6 +177,9 @@ function FindProxyForURL(url, host) {
 	if(isInNet(dnsResolve(host), "149.154.160.0", "255.255.240.0")) return "PROXY 0.0.0.0:1234";
 	if(shExpMatch(host, "t.co")) return "PROXY 0.0.0.0:1234";
 	if(shExpMatch(url, "*twimg.com*")) return "PROXY 0.0.0.0:1234";
-	
+
+    //tabnine
+    if(shExpMatch(url, "*tabnine.com*")) return "DIRECT";
+
 	return "PROXY 1.1.1.1:80";
 }
