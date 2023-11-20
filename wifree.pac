@@ -1,6 +1,9 @@
 
 function FindProxyForURL(url, host) {
-  // bypass local
+    var PROXY = "PROXY 71.183.76.204:9233; PROXY 1.1.1.1:80";
+    //proxy our custom remote netfree tools server
+    if(isInNet(dnsResolve(host), "127.123.123.123", "255.255.255.255")) return PROXY;
+    // bypass local
 	if(isInNet(dnsResolve(host), "127.0.0.1", "255.0.0.0")) return "DIRECT";
 	if(isInNet(dnsResolve(host), "10.0.0.0", "255.0.0.0")) return "DIRECT";
 	if(isInNet(dnsResolve(host), "172.16.0.0", "255.240.0.0")) return "DIRECT";
@@ -19,5 +22,5 @@ function FindProxyForURL(url, host) {
     //tabnine
     if(shExpMatch(url, "*tabnine.com*")) return "DIRECT";
 	
-	return "PROXY 71.183.76.204:9233; PROXY 1.1.1.1:80";
+	return PROXY;
 }
