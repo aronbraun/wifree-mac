@@ -21,6 +21,20 @@ function FindProxyForURL(url, host) {
     if(isInNet(dnsResolve(host), "71.183.76.204", "255.255.255.255")) return "DIRECT";
     //tabnine
     if(shExpMatch(url, "*tabnine.com*")) return "DIRECT";
-	
+
+   // **-allow apple store with no images-**
+   if(dnsDomainIs(host, "amp-api.apps.apple.com")) return "DIRECT";
+   if(dnsDomainIs(host, "amp-api-edge.apps.apple.com")) return "DIRECT";
+   if(dnsDomainIs(host, "apps.mzstatic.com")) return "DIRECT";
+   if(dnsDomainIs(host, "apptrailers.itunes.apple.com")) return "DIRECT";
+   if(dnsDomainIs(host, "certs.apple.com")) return "DIRECT";
+   if(dnsDomainIs(host, "ocsp2.apple.com")) return "DIRECT";
+   if(dnsDomainIs(host, "configuration.apple.com")) return "DIRECT";
+   if(dnsDomainIs(host, "osxapps.itunes.apple.com")) return "DIRECT";
+   if(dnsDomainIs(host, "bag.itunes.apple.com")) return "DIRECT";
+   if(dnsDomainIs(host, "p46-buy.itunes.apple.com")) return "DIRECT";
+   if(dnsDomainIs(host, "fpinit.itunes.apple.com")) return "DIRECT";
+   if(dnsDomainIs(host, "xp.apple.com")) return "DIRECT";
+
 	return PROXY;
 }
